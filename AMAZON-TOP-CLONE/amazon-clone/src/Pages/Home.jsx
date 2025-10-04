@@ -1,37 +1,23 @@
-import ProductList from '../components/ProductList';
 import { useState } from 'react';
 import ProductList from '../components/ProductList';
+import Filtered from '../components/Filtered';
 
 function Home() {
-  const [search, setSearch] = useState('');
-  const products = [/* product array */];
+  const products = [
+    { id: '1', title: 'Wireless Headphones', price: 59.99, image: '/images/headphones.jpg', category: 'electronics' },
+    { id: '2', title: 'Smart Watch', price: 129.99, image: '/images/watch.jpg', category: 'electronics' },
+    { id: '3', title: 'Leather Jacket', price: 89.99, image: '/images/jacket.jpg', category: 'fashion' },
+    { id: '4', title: 'Sci-Fi Novel', price: 19.99, image: '/images/book.jpg', category: 'books' },
+  ];
 
-  const filtered = products.filter((p) =>
-    p.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <ProductList products={filtered} />
+      <Filtered products={products} onFilter={setFilteredProducts} />
+      <ProductList products={filteredProducts} />
     </>
   );
 }
 
-function Home() {
-  const products = [
-    { id: '1', title: 'Wireless Headphones', price: 59.99, image: '/images/headphones.jpg' },
-    { id: '2', title: 'Smart Watch', price: 129.99, image: '/images/watch.jpg' },
-    { id: '3', title: 'Gaming Mouse', price: 39.99, image: '/images/mouse.jpg' },
-  ];
-
-  return <ProductList products={products} />;
-}
-
 export default Home;
-
