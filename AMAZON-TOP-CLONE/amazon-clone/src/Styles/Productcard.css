@@ -1,0 +1,21 @@
+.product-card {
+  background-color: #1c1c1c;
+  border: 1px solid gold;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  color: gold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px gold;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
